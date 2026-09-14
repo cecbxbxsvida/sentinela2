@@ -14,10 +14,264 @@
         Painel Médico
     </title>
 
-    <link
-        rel="stylesheet"
-        href="css/medico.css"
-    >
+   <style>
+       ```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f6fb;
+    color: #26364a;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.header {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 18px rgba(42, 62, 88, 0.10);
+}
+
+.subtitle {
+    color: #607d9b;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.header h1 {
+    margin: 8px 0;
+    color: #243b53;
+}
+
+.header p {
+    color: #718096;
+}
+
+.status {
+    background: #e8f5ee;
+    color: #278253;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background: #35a66f;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.section {
+    background: #ffffff;
+    margin-top: 25px;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(42, 62, 88, 0.08);
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.tag {
+    color: #57748f;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.section-title h2 {
+    color: #263b52;
+    margin-top: 5px;
+}
+
+.refresh-btn {
+    border: none;
+    background: #e5edf6;
+    color: #38536d;
+    padding: 11px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.refresh-btn:hover {
+    background: #d3e0ee;
+}
+
+.patient-card {
+    background: #f9fbfd;
+    border: 1px solid #dce5ee;
+    border-radius: 15px;
+    padding: 22px;
+    margin-bottom: 18px;
+}
+
+.patient-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.patient-avatar {
+    width: 48px;
+    height: 48px;
+    background: #6c8eac;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.patient-name {
+    flex: 1;
+}
+
+.patient-name h3 {
+    color: #263b52;
+}
+
+.patient-name span {
+    color: #7b8794;
+    font-size: 13px;
+}
+
+.risk {
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.risco-verde {
+    background: #dff3e7;
+    color: #28784d;
+}
+
+.risco-amarelo {
+    background: #fff2c9;
+    color: #98720b;
+}
+
+.risco-laranja {
+    background: #ffe1cc;
+    color: #a85a1d;
+}
+
+.risco-vermelho {
+    background: #f8d9dc;
+    color: #a53d48;
+}
+
+.risco-azul {
+    background: #dbe8f7;
+    color: #3e6793;
+}
+
+.patient-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 22px;
+}
+
+.patient-info div {
+    background: #eef3f8;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.patient-info span {
+    display: block;
+    color: #718096;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.patient-info strong {
+    color: #31475d;
+}
+
+.observation {
+    margin-top: 18px;
+    background: #edf2f7;
+    padding: 15px;
+    border-radius: 10px;
+    color: #536579;
+}
+
+.attend-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #527da3;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.attend-btn:hover {
+    background: #416a8e;
+}
+
+.empty {
+    text-align: center;
+    padding: 50px 20px;
+    color: #718096;
+}
+
+.empty-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.empty h3 {
+    color: #40566d;
+    margin-bottom: 8px;
+}
+
+.error {
+    background: #fbe5e7;
+    color: #a53d48;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    color: #8493a3;
+    font-size: 13px;
+    margin-top: 25px;
+}
+```
+
+   </style>
 
 </head>
 
