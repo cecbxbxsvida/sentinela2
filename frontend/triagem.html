@@ -14,9 +14,130 @@
         Triagem Hospitalar
     </title>
 
-    <link
-        rel="stylesheet"
-        href="css/triagem.css"
+   <style>
+       ```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6f8;
+    color: #344054;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 92%;
+    max-width: 620px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    text-align: center;
+    color: #3f5265;
+    margin-bottom: 25px;
+    font-size: 25px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #d5dbe1;
+    background: #fafbfc;
+    border-radius: 9px;
+    padding: 13px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #344054;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #8095a8;
+    background: #ffffff;
+}
+
+textarea {
+    height: 110px;
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    border: none;
+    border-radius: 9px;
+    padding: 13px;
+    background: #63798c;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #536a7d;
+}
+
+#resultado {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#resultado:empty {
+    display: none;
+}
+
+/* Classificações de risco */
+
+.verde {
+    background: #e8f1eb;
+    color: #42634d;
+    border: 1px solid #d3e2d8;
+}
+
+.amarelo {
+    background: #f5f0dc;
+    color: #75642c;
+    border: 1px solid #e8dfbd;
+}
+
+.vermelho {
+    background: #f3e4e5;
+    color: #805056;
+    border: 1px solid #e5cdd0;
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        padding: 22px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}
+```
+
+   </style>
     >
 
 </head>
