@@ -1,147 +1,499 @@
+```css
 /* ==========================================================================
-   Configurações Globais (Reset e Fundo)
+   CONFIGURAÇÕES GLOBAIS
    ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna hospitalar */
+
+    font-family:
+        'Segoe UI',
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
 }
 
 body {
-    background-color: #f0f4f8; /* Tom suave de azul clínico */
-    color: #333333;
-    padding: 20px;
+    background:
+        radial-gradient(
+            circle at top left,
+            #dff6f4 0%,
+            #eef8f8 35%,
+            #f4f8fb 70%,
+            #eaf1f6 100%
+        );
+
+    color: #263b45;
+
+    padding: 30px 20px;
+
+    min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+
+    position: relative;
 }
 
-/* ==========================================================================
-   Container Principal (Formulário)
-   ========================================================================== */
-.container {
-    background-color: #ffffff;
-    width: 100%;
-    max-width: 600px; /* Reduzido para ficar mais elegante e centralizado */
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); /* Sombra suave profissional */
-    border-top: 6px solid #0096c7; /* Linha superior de identidade visual */
+
+/* Pequeno detalhe decorativo no fundo */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(24, 169, 161, 0.08);
+
+    top: -100px;
+    right: -80px;
+
+    pointer-events: none;
 }
+
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: rgba(27, 115, 155, 0.06);
+
+    bottom: -90px;
+    left: -70px;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================================
+   CONTAINER PRINCIPAL
+   ========================================================================== */
+
+.container {
+    background: rgba(255, 255, 255, 0.96);
+
+    width: 100%;
+    max-width: 650px;
+
+    padding: 38px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 50px rgba(34, 73, 89, 0.12),
+        0 5px 15px rgba(34, 73, 89, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Barra superior */
+
+.container::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087f8c,
+            #13a8a0,
+            #55c9c1
+        );
+}
+
+
+/* ==========================================================================
+   TÍTULOS
+   ========================================================================== */
 
 h2 {
-    color: #1e3d59;
-    font-size: 24px;
-    font-weight: 600;
-    text-transform: capitalize;
-    margin-bottom: 20px;
+    color: #174b5b;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+
     text-align: center;
+
+    letter-spacing: -0.5px;
+
+    position: relative;
 }
 
+
+/* Ícone decorativo abaixo do título */
+
+h2::after {
+    content: "";
+
+    display: block;
+
+    width: 45px;
+    height: 4px;
+
+    margin: 10px auto 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087f8c,
+            #48c4bd
+        );
+}
+
+
 /* ==========================================================================
-   Campos de Entrada (Inputs, Select e Textarea)
+   CAMPOS
    ========================================================================== */
+
 input,
 select,
 textarea {
     width: 100%;
-    padding: 12px 14px;
-    margin-top: 15px;
-    border-radius: 8px;
-    border: 1.5px solid #cbd5e0;
-    font-size: 16px;
-    color: #2d3748;
-    background-color: #f8fafc;
+
+    padding: 14px 16px;
+
+    margin-top: 14px;
+
+    border-radius: 11px;
+
+    border: 1px solid #d3e1e6;
+
+    font-size: 15px;
+
+    color: #29414c;
+
+    background-color: #f8fbfc;
+
     outline: none;
-    transition: all 0.2s ease;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.2s ease;
 }
 
-/* Efeito de Foco nos elementos */
+
+/* Placeholder */
+
+input::placeholder,
+textarea::placeholder {
+    color: #91a4ad;
+}
+
+
+/* Foco */
+
 input:focus,
 select:focus,
 textarea:focus {
     background-color: #ffffff;
-    border-color: #0096c7;
-    box-shadow: 0 0 0 3px rgba(0, 150, 199, 0.15);
+
+    border-color: #13a8a0;
+
+    box-shadow:
+        0 0 0 4px rgba(19, 168, 160, 0.10),
+        0 4px 12px rgba(19, 168, 160, 0.06);
 }
+
+
+/* Hover */
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #a9c8d0;
+}
+
 
 textarea {
-    min-height: 100px;
-    resize: none;
+    min-height: 115px;
+
+    resize: vertical;
 }
 
+
 /* ==========================================================================
-   Botão Salvar
+   SELECT
    ========================================================================== */
+
+select {
+    cursor: pointer;
+}
+
+
+/* ==========================================================================
+   BOTÕES
+   ========================================================================== */
+
 button {
     width: 100%;
-    padding: 14px;
-    margin-top: 25px;
-    background-color: #0077b6;
+
+    padding: 14px 18px;
+
+    margin-top: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087f8c,
+            #13a8a0
+        );
+
     color: #ffffff;
+
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
+
+    border-radius: 11px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+
+    box-shadow:
+        0 6px 15px rgba(8, 127, 140, 0.20);
 }
+
 
 button:hover {
-    background-color: #005f96;
+    filter: brightness(1.05);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 20px rgba(8, 127, 140, 0.25);
 }
+
 
 button:active {
-    transform: scale(0.99);
+    transform: translateY(0);
+
+    box-shadow:
+        0 3px 8px rgba(8, 127, 140, 0.18);
 }
+
 
 /* ==========================================================================
-   Faixas / Alertas de Resultado da Classificação
+   RESULTADO DA CLASSIFICAÇÃO
    ========================================================================== */
+
 #resultado {
-    margin-top: 20px;
-    padding: 14px;
-    border-radius: 8px;
+    margin-top: 22px;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
     text-align: center;
-    font-weight: bold;
-    font-size: 15px;
-    display: none; /* Só aparece quando possuir uma classe aplicada */
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    display: none;
+
     text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    animation: aparecer 0.3s ease;
 }
 
-/* Exibe o bloco caso tenha qualquer uma das classes de risco */
+
 #resultado.verde,
 #resultado.amarelo,
 #resultado.vermelho {
     display: block;
 }
 
+
+/* ==========================================================================
+   RISCO VERDE
+   ========================================================================== */
+
 .verde {
-    background-color: #def7ec;
-    color: #03543f;
-    border: 1px solid #84e1bc;
+    background:
+        linear-gradient(
+            135deg,
+            #e6f8f0,
+            #d8f3e7
+        );
+
+    color: #087443;
+
+    border: 1px solid #a8dfc2;
+
+    box-shadow:
+        0 5px 14px rgba(8, 116, 67, 0.08);
 }
+
+
+/* ==========================================================================
+   RISCO AMARELO
+   ========================================================================== */
 
 .amarelo {
-    background-color: #fefcbf;
-    color: #744210;
-    border: 1px solid #faf089;
+    background:
+        linear-gradient(
+            135deg,
+            #fff8df,
+            #fff3c4
+        );
+
+    color: #876500;
+
+    border: 1px solid #ead58a;
+
+    box-shadow:
+        0 5px 14px rgba(135, 101, 0, 0.07);
 }
+
+
+/* ==========================================================================
+   RISCO VERMELHO
+   ========================================================================== */
 
 .vermelho {
-    background-color: #fde8e8;
-    color: #9b1c1c;
-    border: 1px solid #f8b4b4;
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f0,
+            #ffe2e2
+        );
+
+    color: #b42323;
+
+    border: 1px solid #efb2b2;
+
+    box-shadow:
+        0 5px 14px rgba(180, 35, 35, 0.08);
 }
 
-/* Mantido a classe card solicitada */
+
+/* ==========================================================================
+   CARD
+   ========================================================================== */
+
 .card {
-    border: 1px solid #e2e8f0;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 10px;
-    background: #ffffff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid #dce9ed;
+
+    padding: 18px;
+
+    margin: 18px 0;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fcfd
+        );
+
+    box-shadow:
+        0 5px 15px rgba(38, 75, 88, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
 }
+
+
+.card:hover {
+    transform: translateY(-2px);
+
+    border-color: #b9d9dd;
+
+    box-shadow:
+        0 9px 22px rgba(38, 75, 88, 0.09);
+}
+
+
+/* ==========================================================================
+   ANIMAÇÃO
+   ========================================================================== */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .container {
+        padding: 28px 20px;
+
+        border-radius: 18px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+}
+```
