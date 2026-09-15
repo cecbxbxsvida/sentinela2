@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -14,288 +15,1009 @@
         Painel Médico
     </title>
 
-   <style>
-       ```css
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f3f6fb;
-    color: #26364a;
-}
+    <style>
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 40px auto;
-}
+        /* ============================================================
+           RESET
+        ============================================================ */
 
-.header {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 5px 18px rgba(42, 62, 88, 0.10);
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
 
-.subtitle {
-    color: #607d9b;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
+            font-family:
+                "Segoe UI",
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
+        }
 
-.header h1 {
-    margin: 8px 0;
-    color: #243b53;
-}
 
-.header p {
-    color: #718096;
-}
+        /* ============================================================
+           FUNDO
+        ============================================================ */
 
-.status {
-    background: #e8f5ee;
-    color: #278253;
-    padding: 10px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-}
+        body {
 
-.status-dot {
-    display: inline-block;
-    width: 9px;
-    height: 9px;
-    background: #35a66f;
-    border-radius: 50%;
-    margin-right: 7px;
-}
+            min-height: 100vh;
 
-.section {
-    background: #ffffff;
-    margin-top: 25px;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 5px 18px rgba(42, 62, 88, 0.08);
-}
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(31, 190, 180, 0.12),
+                    transparent 28%
+                ),
 
-.section-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(30, 94, 142, 0.13),
+                    transparent 30%
+                ),
 
-.tag {
-    color: #57748f;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
+                linear-gradient(
+                    135deg,
+                    #eef8f8 0%,
+                    #f5f9fc 50%,
+                    #eaf2f7 100%
+                );
 
-.section-title h2 {
-    color: #263b52;
-    margin-top: 5px;
-}
+            color: #263b45;
 
-.refresh-btn {
-    border: none;
-    background: #e5edf6;
-    color: #38536d;
-    padding: 11px 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-}
+            padding: 30px 20px;
+        }
 
-.refresh-btn:hover {
-    background: #d3e0ee;
-}
 
-.patient-card {
-    background: #f9fbfd;
-    border: 1px solid #dce5ee;
-    border-radius: 15px;
-    padding: 22px;
-    margin-bottom: 18px;
-}
+        /* ============================================================
+           CONTAINER
+        ============================================================ */
 
-.patient-top {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+        .container {
 
-.patient-avatar {
-    width: 48px;
-    height: 48px;
-    background: #6c8eac;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 20px;
-}
+            width: 92%;
 
-.patient-name {
-    flex: 1;
-}
+            max-width: 1150px;
 
-.patient-name h3 {
-    color: #263b52;
-}
+            margin: 0 auto;
+        }
 
-.patient-name span {
-    color: #7b8794;
-    font-size: 13px;
-}
 
-.risk {
-    padding: 7px 13px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-}
+        /* ============================================================
+           CABEÇALHO
+        ============================================================ */
 
-.risco-verde {
-    background: #dff3e7;
-    color: #28784d;
-}
+        .header {
 
-.risco-amarelo {
-    background: #fff2c9;
-    color: #98720b;
-}
+            position: relative;
 
-.risco-laranja {
-    background: #ffe1cc;
-    color: #a85a1d;
-}
+            overflow: hidden;
 
-.risco-vermelho {
-    background: #f8d9dc;
-    color: #a53d48;
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    #073b4c,
+                    #086788
+                );
 
-.risco-azul {
-    background: #dbe8f7;
-    color: #3e6793;
-}
+            padding: 28px 32px;
 
-.patient-info {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 22px;
-}
+            border-radius: 22px;
 
-.patient-info div {
-    background: #eef3f8;
-    padding: 15px;
-    border-radius: 10px;
-}
+            display: flex;
 
-.patient-info span {
-    display: block;
-    color: #718096;
-    font-size: 12px;
-    margin-bottom: 6px;
-}
+            justify-content: space-between;
 
-.patient-info strong {
-    color: #31475d;
-}
+            align-items: center;
 
-.observation {
-    margin-top: 18px;
-    background: #edf2f7;
-    padding: 15px;
-    border-radius: 10px;
-    color: #536579;
-}
+            box-shadow:
+                0 15px 35px rgba(7, 59, 76, 0.18);
 
-.attend-btn {
-    width: 100%;
-    margin-top: 20px;
-    padding: 13px;
-    border: none;
-    border-radius: 10px;
-    background: #527da3;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-}
+            color: white;
+        }
 
-.attend-btn:hover {
-    background: #416a8e;
-}
 
-.empty {
-    text-align: center;
-    padding: 50px 20px;
-    color: #718096;
-}
+        /* Brilho decorativo */
 
-.empty-icon {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
+        .header::after {
 
-.empty h3 {
-    color: #40566d;
-    margin-bottom: 8px;
-}
+            content: "";
 
-.error {
-    background: #fbe5e7;
-    color: #a53d48;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
+            position: absolute;
 
-footer {
-    text-align: center;
-    color: #8493a3;
-    font-size: 13px;
-    margin-top: 25px;
-}
-```
+            width: 260px;
 
-   </style>
+            height: 260px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(62, 211, 201, 0.12);
+
+            right: -100px;
+
+            top: -130px;
+        }
+
+
+        .header-left {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 17px;
+        }
+
+
+        /* Ícone */
+
+        .medical-icon {
+
+            width: 58px;
+
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                rgba(255,255,255,0.14);
+
+            border:
+                1px solid rgba(255,255,255,0.18);
+
+            border-radius: 16px;
+
+            font-size: 29px;
+
+            backdrop-filter: blur(8px);
+
+            box-shadow:
+                inset 0 0 15px rgba(255,255,255,0.05);
+        }
+
+
+        .subtitle {
+
+            display: block;
+
+            color: #80e1db;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .header h1 {
+
+            font-size: 27px;
+
+            color: #ffffff;
+
+            margin-bottom: 4px;
+
+            font-weight: 700;
+        }
+
+
+        .header p {
+
+            color: #c8e2e8;
+
+            font-size: 13px;
+        }
+
+
+        /* ============================================================
+           STATUS ONLINE
+        ============================================================ */
+
+        .status {
+
+            position: relative;
+
+            z-index: 3;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background:
+                rgba(255,255,255,0.12);
+
+            border:
+                1px solid rgba(255,255,255,0.18);
+
+            color: #dffbf7;
+
+            padding: 10px 15px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            backdrop-filter: blur(8px);
+        }
+
+
+        .status-dot {
+
+            width: 9px;
+
+            height: 9px;
+
+            background: #45e0a4;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 0 4px rgba(69,224,164,0.13),
+                0 0 12px rgba(69,224,164,0.7);
+
+            animation:
+                pulsar 2s infinite;
+        }
+
+
+        @keyframes pulsar {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.45;
+            }
+        }
+
+
+        /* ============================================================
+           SEÇÃO
+        ============================================================ */
+
+        .section {
+
+            background:
+                rgba(255,255,255,0.96);
+
+            margin-top: 25px;
+
+            padding: 28px;
+
+            border-radius: 22px;
+
+            border:
+                1px solid rgba(214,229,235,0.9);
+
+            box-shadow:
+                0 10px 30px rgba(34,75,88,0.08);
+        }
+
+
+        /* ============================================================
+           TÍTULO DA SEÇÃO
+        ============================================================ */
+
+        .section-title {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+        }
+
+
+        .tag {
+
+            display: inline-block;
+
+            color: #0b8f91;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .section-title h2 {
+
+            color: #123f50;
+
+            font-size: 22px;
+
+            font-weight: 700;
+        }
+
+
+        /* ============================================================
+           BOTÃO ATUALIZAR
+        ============================================================ */
+
+        .refresh-btn {
+
+            border: none;
+
+            background:
+                #edf7f7;
+
+            color: #087f8c;
+
+            padding: 11px 17px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+
+        .refresh-btn:hover {
+
+            background:
+                #d8eeee;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* ============================================================
+           CARD DO PACIENTE
+        ============================================================ */
+
+        .patient-card {
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #f7fbfc
+                );
+
+            border:
+                1px solid #dcebed;
+
+            border-radius: 17px;
+
+            padding: 22px;
+
+            margin-bottom: 16px;
+
+            box-shadow:
+                0 5px 16px rgba(31,76,91,0.06);
+
+            transition:
+                0.3s ease;
+
+            overflow: hidden;
+        }
+
+
+        /* Linha lateral */
+
+        .patient-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            height: 100%;
+
+            width: 4px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #13a8a0,
+                    #087f8c
+                );
+        }
+
+
+        .patient-card:hover {
+
+            transform:
+                translateY(-3px);
+
+            border-color:
+                #b8dfe0;
+
+            box-shadow:
+                0 12px 28px rgba(31,76,91,0.10);
+        }
+
+
+        /* ============================================================
+           TOPO DO PACIENTE
+        ============================================================ */
+
+        .patient-top {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+
+        .patient-avatar {
+
+            width: 52px;
+
+            height: 52px;
+
+            min-width: 52px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0b7f8c,
+                    #13a8a0
+                );
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 15px;
+
+            font-weight: 700;
+
+            font-size: 21px;
+
+            box-shadow:
+                0 5px 12px rgba(8,127,140,0.18);
+        }
+
+
+        .patient-name {
+
+            flex: 1;
+        }
+
+
+        .patient-name h3 {
+
+            color: #153f50;
+
+            font-size: 17px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .patient-name span {
+
+            color: #8399a3;
+
+            font-size: 12px;
+        }
+
+
+        /* ============================================================
+           RISCO
+        ============================================================ */
+
+        .risk {
+
+            padding: 7px 13px;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        .risco-verde {
+
+            background: #e3f8ed;
+
+            color: #137b4b;
+
+            border:
+                1px solid #bce7ce;
+        }
+
+
+        .risco-amarelo {
+
+            background: #fff6d9;
+
+            color: #8a6700;
+
+            border:
+                1px solid #f0dc99;
+        }
+
+
+        .risco-laranja {
+
+            background: #fff0e4;
+
+            color: #a85618;
+
+            border:
+                1px solid #f1c5a3;
+        }
+
+
+        .risco-vermelho {
+
+            background: #ffe9e9;
+
+            color: #b52d35;
+
+            border:
+                1px solid #efb4b8;
+        }
+
+
+        .risco-azul {
+
+            background: #e5f1fa;
+
+            color: #28658d;
+
+            border:
+                1px solid #bdd8eb;
+        }
+
+
+        /* ============================================================
+           INFORMAÇÕES DO PACIENTE
+        ============================================================ */
+
+        .patient-info {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 14px;
+
+            margin-top: 21px;
+        }
+
+
+        .patient-info div {
+
+            background:
+                #f2f7f9;
+
+            padding: 14px 15px;
+
+            border-radius: 11px;
+
+            border:
+                1px solid #e4eef1;
+        }
+
+
+        .patient-info span {
+
+            display: block;
+
+            color: #83969f;
+
+            font-size: 11px;
+
+            margin-bottom: 6px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+
+            font-weight: 700;
+        }
+
+
+        .patient-info strong {
+
+            color: #34515e;
+
+            font-size: 13px;
+        }
+
+
+        /* ============================================================
+           OBSERVAÇÃO
+        ============================================================ */
+
+        .observation {
+
+            margin-top: 15px;
+
+            background:
+                #edf7f7;
+
+            padding: 15px;
+
+            border-radius: 11px;
+
+            color: #55717a;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+            border-left:
+                3px solid #13a8a0;
+        }
+
+
+        .observation strong {
+
+            color: #174b5b;
+        }
+
+
+        /* ============================================================
+           BOTÃO ATENDER
+        ============================================================ */
+
+        .attend-btn {
+
+            width: 100%;
+
+            margin-top: 18px;
+
+            padding: 13px 16px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #087f8c,
+                    #13a8a0
+                );
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 6px 14px rgba(8,127,140,0.18);
+
+            transition:
+                0.25s;
+        }
+
+
+        .attend-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 9px 20px rgba(8,127,140,0.25);
+
+            filter:
+                brightness(1.05);
+        }
+
+
+        .attend-btn:active {
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* ============================================================
+           TELA VAZIA
+        ============================================================ */
+
+        .empty {
+
+            text-align: center;
+
+            padding: 55px 20px;
+
+            color: #82959e;
+        }
+
+
+        .empty-icon {
+
+            width: 68px;
+
+            height: 68px;
+
+            margin:
+                0 auto 17px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background:
+                #e7f5f5;
+
+            color: #0b8f91;
+
+            font-size: 30px;
+        }
+
+
+        .empty h3 {
+
+            color: #365361;
+
+            margin-bottom: 7px;
+
+            font-size: 17px;
+        }
+
+
+        .empty p {
+
+            font-size: 13px;
+
+            color: #8799a1;
+        }
+
+
+        /* ============================================================
+           ERRO
+        ============================================================ */
+
+        .error {
+
+            background:
+                #fff0f0;
+
+            color: #b52d35;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            border:
+                1px solid #efc3c5;
+        }
+
+
+        /* ============================================================
+           RODAPÉ
+        ============================================================ */
+
+        footer {
+
+            text-align: center;
+
+            color: #8aa0a9;
+
+            font-size: 11px;
+
+            margin-top: 22px;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* ============================================================
+           RESPONSIVIDADE
+        ============================================================ */
+
+        @media (max-width: 750px) {
+
+            body {
+                padding: 20px 12px;
+            }
+
+
+            .container {
+                width: 100%;
+            }
+
+
+            .header {
+
+                padding: 23px 20px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 18px;
+            }
+
+
+            .header h1 {
+                font-size: 23px;
+            }
+
+
+            .status {
+                align-self: flex-start;
+            }
+
+
+            .section {
+                padding: 20px 16px;
+            }
+
+
+            .section-title {
+
+                align-items: flex-start;
+
+                gap: 15px;
+            }
+
+
+            .patient-info {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .patient-top {
+
+                flex-wrap: wrap;
+            }
+
+
+            .risk {
+
+                margin-left: 67px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            .header-left {
+                align-items: flex-start;
+            }
+
+
+            .medical-icon {
+
+                width: 48px;
+
+                height: 48px;
+
+                font-size: 23px;
+            }
+
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+
+            .section-title h2 {
+                font-size: 19px;
+            }
+
+
+            .refresh-btn {
+                padding: 9px 12px;
+            }
+
+
+            .patient-card {
+                padding: 18px 15px;
+            }
+
+
+            .patient-avatar {
+                width: 46px;
+
+                height: 46px;
+
+                min-width: 46px;
+            }
+
+
+            .risk {
+                margin-left: 0;
+            }
+        }
+
+    </style>
 
 </head>
 
 
 <body>
 
+
 <div class="container">
 
 
+    <!-- =========================================================
+         CABEÇALHO
+    ========================================================== -->
+
     <header class="header">
 
-        <div>
+        <div class="header-left">
 
-            <span class="subtitle">
-                SISTEMA HOSPITALAR
-            </span>
+            <div class="medical-icon">
+                🩺
+            </div>
 
-            <h1>
-                🩺 Painel Médico
-            </h1>
 
-            <p>
-                Pacientes aguardando atendimento
-            </p>
+            <div>
+
+                <span class="subtitle">
+                    SISTEMA HOSPITALAR
+                </span>
+
+                <h1>
+                    Painel Médico
+                </h1>
+
+                <p>
+                    Pacientes aguardando atendimento
+                </p>
+
+            </div>
 
         </div>
 
@@ -310,6 +1032,11 @@ footer {
 
     </header>
 
+
+
+    <!-- =========================================================
+         ÁREA DE ATENDIMENTO
+    ========================================================== -->
 
     <section class="section">
 
@@ -333,9 +1060,7 @@ footer {
                 class="refresh-btn"
                 onclick="carregarPacientes()"
             >
-
                 ↻ Atualizar
-
             </button>
 
         </div>
@@ -350,6 +1075,11 @@ footer {
     </section>
 
 
+
+    <!-- =========================================================
+         RODAPÉ
+    ========================================================== -->
+
     <footer>
 
         Sistema Hospitalar • Painel Médico
@@ -360,15 +1090,20 @@ footer {
 </div>
 
 
+
 <script>
+
+
+    /* ============================================================
+       CARREGAR PACIENTES
+    ============================================================ */
 
     async function carregarPacientes() {
 
         const div =
-            document
-                .getElementById(
-                    "triagem"
-                );
+            document.getElementById(
+                "triagem"
+            );
 
 
         div.innerHTML = `
@@ -439,12 +1174,16 @@ footer {
                 `;
 
                 return;
-
             }
 
 
             pacientes.forEach(
                 paciente => {
+
+
+                    /* ============================================
+                       RISCO
+                    ============================================ */
 
                     const risco =
                         String(
@@ -502,6 +1241,10 @@ footer {
                     }
 
 
+                    /* ============================================
+                       DADOS
+                    ============================================ */
+
                     const nome =
                         paciente.nome ||
                         "Paciente";
@@ -516,8 +1259,10 @@ footer {
                         paciente.temperatura !== null &&
                         paciente.temperatura !== undefined &&
                         paciente.temperatura !== ""
-                            ? paciente.temperatura + " °C"
-                            : "Não informada";
+
+                        ? paciente.temperatura + " °C"
+
+                        : "Não informada";
 
 
                     const alergias =
@@ -529,6 +1274,10 @@ footer {
                         paciente.observacao ||
                         "Nenhuma";
 
+
+                    /* ============================================
+                       CARD
+                    ============================================ */
 
                     const card =
                         document.createElement(
@@ -543,6 +1292,7 @@ footer {
                     card.innerHTML = `
 
                         <div class="patient-top">
+
 
                             <div class="patient-avatar">
 
@@ -574,10 +1324,12 @@ footer {
 
                             </span>
 
+
                         </div>
 
 
                         <div class="patient-info">
+
 
                             <div>
 
@@ -617,6 +1369,7 @@ footer {
 
                             </div>
 
+
                         </div>
 
 
@@ -626,7 +1379,7 @@ footer {
                                 Observações:
                             </strong>
 
-                            <br><br>
+                            <br>
 
                             ${observacao}
 
@@ -653,7 +1406,10 @@ footer {
             );
 
 
-        } catch (error) {
+        }
+
+
+        catch (error) {
 
             console.error(
                 error
@@ -680,6 +1436,11 @@ footer {
     }
 
 
+
+    /* ============================================================
+       ATENDER PACIENTE
+    ============================================================ */
+
     function atenderPaciente(id) {
 
         if (!id) {
@@ -689,7 +1450,6 @@ footer {
             );
 
             return;
-
         }
 
 
@@ -699,10 +1459,18 @@ footer {
     }
 
 
+
+    /* ============================================================
+       INICIALIZAÇÃO
+    ============================================================ */
+
     carregarPacientes();
 
+
 </script>
+
 
 </body>
 
 </html>
+```
